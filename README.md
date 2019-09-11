@@ -1,55 +1,57 @@
-python-package-boilerplate
-==========================
+pyExplore
+==============================
 
-[![Build Status](https://travis-ci.org/mtchavez/python-package-boilerplate.png?branch=master)](https://travis-ci.org/mtchavez/python-package-boilerplate)
-[![Requires.io](https://requires.io/github/mtchavez/python-package-boilerplate/requirements.svg?branch=master)](https://requires.io/github/mtchavez/python-package-boilerplate/requirements?branch=master)
+Python Package for exploratory data analysis in Data Science
 
-Boilerplate for a Python Package
+Project Organization
+------------
 
-## Package
+    ├── LICENSE
+    ├── Makefile           <- Makefile with commands like `make data` or `make train`
+    ├── README.md          <- The top-level README for developers using this project.
+    ├── data
+    │   ├── external       <- Data from third party sources.
+    │   ├── interim        <- Intermediate data that has been transformed.
+    │   ├── processed      <- The final, canonical data sets for modeling.
+    │   └── raw            <- The original, immutable data dump.
+    │
+    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    │
+    ├── models             <- Trained and serialized models, model predictions, or model summaries
+    │
+    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
+    │                         the creator's initials, and a short `-` delimited description, e.g.
+    │                         `1.0-jqp-initial-data-exploration`.
+    │
+    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+    │
+    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+    │   └── figures        <- Generated graphics and figures to be used in reporting
+    │
+    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
+    │                         generated with `pip freeze > requirements.txt`
+    │
+    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    ├── src                <- Source code for use in this project.
+    │   ├── __init__.py    <- Makes src a Python module
+    │   │
+    │   ├── data           <- Scripts to download or generate data
+    │   │   └── make_dataset.py
+    │   │
+    │   ├── features       <- Scripts to turn raw data into features for modeling
+    │   │   └── build_features.py
+    │   │
+    │   ├── models         <- Scripts to train models and then use trained models to make
+    │   │   │                 predictions
+    │   │   ├── predict_model.py
+    │   │   └── train_model.py
+    │   │
+    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
+    │       └── visualize.py
+    │
+    └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
-Basic structure of package is
 
-```
-├── README.md
-├── packagename
-│   ├── __init__.py
-│   ├── packagename.py
-│   └── version.py
-├── pytest.ini
-├── requirements.txt
-├── setup.py
-└── tests
-    ├── __init__.py
-    ├── helpers
-    │   ├── __init__.py
-    │   └── my_helper.py
-    ├── tests_helper.py
-    └── unit
-        ├── __init__.py
-        ├── test_example.py
-        └── test_version.py
-```
+--------
 
-## Requirements
-
-Package requirements are handled using pip. To install them do
-
-```
-pip install -r requirements.txt
-```
-
-## Tests
-
-Testing is set up using [pytest](http://pytest.org) and coverage is handled
-with the pytest-cov plugin.
-
-Run your tests with ```py.test``` in the root directory.
-
-Coverage is ran by default and is set in the ```pytest.ini``` file.
-To see an html output of coverage open ```htmlcov/index.html``` after running the tests.
-
-## Travis CI
-
-There is a ```.travis.yml``` file that is set up to run your tests for python 2.7
-and python 3.2, should you choose to use it.
+<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>

@@ -1,6 +1,6 @@
-import setuptools
+from setuptools import setup
 
-setuptools.setup(name='pyExplore',
+setup(name='pyExplore',
                  version='0.0.0',
                  description='Python Package for exploratory data analysis in Data Science',
                  long_description=open('README.md').read().strip(),
