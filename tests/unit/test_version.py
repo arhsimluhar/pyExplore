@@ -1,5 +1,6 @@
-from packagename.version import Version
 from tests.helpers import *
+
+from .pyExplore.version import Version
 
 
 class TestVersion(unittest.TestCase):
