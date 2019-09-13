@@ -19,4 +19,3 @@ warnings.filterwarnings('always', category=DeprecationWarning,
 #
 
 __version__ = '0.0.1'
-print("imported __init__.py")
