@@ -18,12 +18,12 @@ https://github.com/tkrabel/edaviz (visualization tools)
 
 TODO 1. EDA module
       - Dataset import Module
-        1. Supporting CSV files import for analysis
+        1. Supporting CSV files import for analysis (done, achieved using pandas read_csv())
       - Variable identification module
-        1. Types of variables (Predictor and target Variable)
-        2. Data Types (characters, Numeric )
-        3. Variable Category (Categorial, continous)
-      - Unvivariate Analysis
+        1. Types of variables (Predictor and target Variable , This information is required from user)
+        2. Data Types (characters, Numeric ) (done)
+        3. Variable Category (Categorial, continous) (done)
+      - Univariate Analysis
         1. For continous variables
         2. For Categorial variables
       - Bivariate Analysis
@@ -40,7 +40,9 @@ TODO 1. EDA module
         4. ANOVA
 
 TODO 2. Visualization modules
-      - implement various visualisation classes
+      1. Univariate analysis
+        - Histogram
+        - Box plot
 
 
 
@@ -68,4 +70,7 @@ TODO 4. Feature Engineering Module
         2. Variable/Feature Creation
             - Derived Variables
             - Dummy Variables
+TODO 5. Information Inference Module
+        1. compile the information from various observation, compile a report
 
+-----------------------------------------------------------

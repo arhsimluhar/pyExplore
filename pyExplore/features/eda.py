@@ -8,6 +8,7 @@ Will improve this in the next version of the module.
 
 
 class EDA:
+
     def __init__(self, file=None, delimiter=",", target=None, predictor=None):
 
         self.is_target_predictor_set = True
@@ -45,6 +46,7 @@ class EDA:
         return self.df.info()
 
     def describe(self):
+
         return self.df.describe()
 
     def variable_category(self):
@@ -89,7 +91,7 @@ class EDA:
                 continue
 
             unique_entries = len(self.df[column].unique())
-            print(unique_entries, column, total_length)
+            # print(unique_entries, column, total_length)
             if unique_entries <= 0.05 * total_length:
                 if total_length >= 10 ** 6:
                     data["continuous"].append(column)
@@ -100,23 +102,57 @@ class EDA:
         return data["categorial"], data["continuous"]
 
     def informatics(self):
+        print("****************************")
         print("Dataset Informatics:")
+        print("****************************")
+
         print("Shape: ", end="")
         print("{0} Datapoints x {1} features".format(self.df.shape[0], self.df.shape[1]))
+
+        print("\n")
         print("****************************")
+        print("variables Indentification")
+        print("****************************")
+
+        if not self.predictor and not self.target:
+            print("Please provide info about target and predictor variables.")
+        else:
+            print("Predictor Variable(s): %s" % (self.predictor))
+            print("Target Variable(s): %s" % (self.target))
+        print("\n")
+
+        print("****************************")
+        print("Data Types of features")
+        print("****************************")
+        self.get_types()
+
+        print("\n")
+
+        print("****************************")
+        print("Variable Categories")
+        print("****************************")
+        print("Categorial Variables: %s" % (self.discrete_variables))
+        print("Continuous Variables: %s" % (self.continuous_variables))
 
 
 class UnivariateAnalysis(EDA):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.data = {
+            "CentralTendency": {},
+            "MeasureOfDispersion": {}
+        }
 
     def central_tendency(self):
+        for var in self.continuous_variables:
+            self.data["CentralTendency"][var] = self.df[var].describe()
+
+    def measureOfDispersion(self):
+        for var in self.continuous_variables:
+            self.data["MeasureOfDispersion"][var] = self.df[var].describe()
+
+    def visualise(self):
         pass
-
-    def continuous_variables(self):
-        for column in self.df.columns:
-            pass
-
 
 
 class BivariateAnalysis(EDA):
