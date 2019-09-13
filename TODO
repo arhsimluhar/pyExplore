@@ -1,0 +1,71 @@
+
+Refer to this
+https://www.analyticsvidhya.com/blog/2016/01/guide-data-exploration/
+https://towardsdatascience.com/exploratory-data-analysis-8fc1cb20fd15
+
+For additional features
+https://gitlab.com/shankarpandala/lazyeda
+https://pypi.org/project/edapy/
+https://github.com/iamjohnnyli/lighteda (not much in it)
+https://pypi.org/project/kesh-utils/ (very deep and lot of functionalities)
+https://pypi.org/project/speedml/ (https://speedml.com/)(simplify the machine learning process)
+https://pypi.org/project/scikit-data/  (Data exploratory analysis module)
+https://pypi.org/project/sci-analysis/ (data exploration and analysis tool)
+https://github.com/asela1982/edaplotting (may be helpful take a look)
+https://github.com/tkrabel/edaviz (visualization tools)
+
+
+
+TODO 1. EDA module
+      - Dataset import Module
+        1. Supporting CSV files import for analysis
+      - Variable identification module
+        1. Types of variables (Predictor and target Variable)
+        2. Data Types (characters, Numeric )
+        3. Variable Category (Categorial, continous)
+      - Unvivariate Analysis
+        1. For continous variables
+        2. For Categorial variables
+      - Bivariate Analysis
+        various methods used for different combinations of categorial and continous variables
+        1. Continous & Continous Variables (scatter plot)
+            - using scatter plot
+            - getting inferences from scatter plot and correlation
+        2. Categorial & Categorial
+            - Two way table
+            - Stacked Column Chart
+            - Chi-Square Test
+        3. Categorial and continous
+            - Z-Test/T-Test
+        4. ANOVA
+
+TODO 2. Visualization modules
+      - implement various visualisation classes
+
+
+
+TODO 3. Data Processing Module
+      - Missing Value Treatment
+            1. Deletion (Listwise and pairwise Deletion)
+            2. Mean/Mode/Median Imputation
+            3. Prediction model method
+            4. KNN Imputation
+      - Outlier Detection and Treatment Module
+            1.Detection of Outliers
+                - Multivariate and univariate outliers
+            2.Treating Outliers
+                - Deleting observations
+                - Transforming and binning values
+                - Imputing
+                - Treat seperately
+
+
+TODO 4. Feature Engineering Module
+        1. Variable Transformation
+            - Logrithm
+            - Square/Cube root
+            - Binning
+        2. Variable/Feature Creation
+            - Derived Variables
+            - Dummy Variables
+
