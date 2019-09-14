@@ -25,7 +25,13 @@ TODO 1. EDA module
         3. Variable Category (Categorial, continous) (done)
       - Univariate Analysis
         1. For continous variables
+            - Central tendency (mean,median, mode max, min using df.describe())
+            - Measure of dispersion (Range, Quartile, IQR, Variance, Standard Deviation, Skewness and Kurtosis)
+                    https://simplyml.com/essential-descriptive-statistics-in-pandas/
         2. For Categorial variables
+        3. Other information
+            - Univariate analysis is also used to highlight missing and outlier values.
+            -  These are measured using various statistical metrics visualization methods
       - Bivariate Analysis
         various methods used for different combinations of categorial and continous variables
         1. Continous & Continous Variables (scatter plot)
