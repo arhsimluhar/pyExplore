@@ -28,6 +28,20 @@ class Dataset:
     def convert_categorial_data_to_numerical_data(self):
         pass
 
+    def remove_col_white_space(self, column):
+        # remove white space at the beginning of string
+        self.df[column] = self.df[column].str.lstrip()
+
+    def change_dtypes(self,column_int = None, column_float = None):
+        """
+        Changing dtypes to save memory
+        Output -> updated df with smaller
+        """
+        for column in column_float:
+            self.df[column] = self.df[column].astype('float32')
+        for column in column_int:
+            self.df[column] = self.df[column].astype('int32')
+        
 
 class TimeSeriesData(Dataset):
     '''
