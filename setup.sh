@@ -40,6 +40,11 @@ then
 elif [ $operation == "release" ]
 then
   release
-elif [ $operation == "install" ]; then
+elif [ $operation == "install" ]
+then
+  install
+else
+  clean
+  build
   install
 fi
