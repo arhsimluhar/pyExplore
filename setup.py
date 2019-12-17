@@ -2,8 +2,8 @@ from setuptools import setup
 from setuptools import find_packages
 
 setup(name='pyExplore',
-      version='0.0.0.1',
-      description='Python Package for exploratory data analysis in Data Science',
+      version='0.0.0.3',
+      description='Python Package for exploratory preprocessing analysis in Data Science',
       long_description=open('README.md').read().strip(),
       long_description_content_type='text/markdown',
       author='Rahul Mishra',

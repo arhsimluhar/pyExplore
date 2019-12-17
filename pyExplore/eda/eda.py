@@ -1,7 +1,7 @@
 import pandas as pd
 
 """
-writing this exploratory data analysis
+writing this exploratory preprocessing analysis
 file with support of single CSV.
 Will improve this in the next version of the module.
 """
@@ -107,7 +107,7 @@ class EDA:
         print("****************************")
 
         print("Shape: ", end="")
-        print("{0} Datapoints x {1} features".format(self.df.shape[0], self.df.shape[1]))
+        print("{0} Datapoints x {1} eda".format(self.df.shape[0], self.df.shape[1]))
 
         print("\n")
         print("****************************")
@@ -122,7 +122,7 @@ class EDA:
         print("\n")
 
         print("****************************")
-        print("Data Types of features")
+        print("Data Types of eda")
         print("****************************")
         self.get_types()
 
