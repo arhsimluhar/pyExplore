@@ -22,12 +22,6 @@ class Dataset:
         if column_name_list:
             self.df.drop(column_name_list, axis=1, inplace=True)
 
-    def check_for_missing_data(self):
-        """
-        check for any missing preprocessing in the df (display in descending order)
-        """
-        return self.df.isnull().sum().sort_values(ascending=False)
-
     def convert_categorial_data_to_numerical_data(self):
         pass
 

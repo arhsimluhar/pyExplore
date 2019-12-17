@@ -1,4 +1,5 @@
 import pandas as pd
+from pyExplore.visualization import  visual
 
 """
 writing this exploratory preprocessing analysis
@@ -6,6 +7,7 @@ file with support of single CSV.
 Will improve this in the next version of the module.
 """
 
+from pyExplore.preprocessing import cleaner
 
 class EDA:
 
@@ -76,6 +78,12 @@ class EDA:
                 raise Exception("Unhandled Data Type.")
         return data
 
+    def check_for_missing_data(self):
+        """
+        check for any missing preprocessing in the df (display in descending order)
+        """
+        return self.df.isnull().sum().sort_values(ascending=False)
+
     def set_type_of_variable(self):
         """
         identifies whether the feature is
@@ -107,7 +115,7 @@ class EDA:
         print("****************************")
 
         print("Shape: ", end="")
-        print("{0} Datapoints x {1} eda".format(self.df.shape[0], self.df.shape[1]))
+        print("{0} Datapoints x {1} feature eda".format(self.df.shape[0], self.df.shape[1]))
 
         print("\n")
         print("****************************")
@@ -134,6 +142,9 @@ class EDA:
         print("Categorial Variables: %s" % (self.discrete_variables))
         print("Continuous Variables: %s" % (self.continuous_variables))
 
+        print("\n")
+        print("Missing Values (any if) in Descending order")
+        print(self.check_for_missing_data())
 
 class UnivariateAnalysis(EDA):
     def __init__(self, *args, **kwargs):
@@ -152,7 +163,21 @@ class UnivariateAnalysis(EDA):
             self.data["MeasureOfDispersion"][var] = self.df[var].describe()
 
     def visualise(self):
-        pass
+        #TODO improve the way we are doing the visualisation
+        x  = visual.figure(self.df)
+        if self.continuous_variables and self.discrete_variables:
+            if self.continuous_variables:
+                for col_name in self.continuous_variables:
+                    x.histogram(col_name = col_name,title=f"Univariate Analyis ({col_name})",xlabel=col_name,ylabel="Count")
+
+                for col_name in self.continuous_variables:
+                    x.box_plot(col_name = col_name,title=f"Univariate Analysis ({col_name})",ylabel=col_name)
+
+            if self.discrete_variables:
+                for col_name in self.discrete_variables:
+                    x.bar(col_name = col_name, title=f"Univariate Analysis ({col_name})",ylabel="Count")
+        else:
+            print("Please define Categorial and Continous Variables for proper visualisation.")
 
 
 class BivariateAnalysis(EDA):
