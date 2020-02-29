@@ -1,13 +1,3 @@
-# local package
--e .
-
-# external requirements
-click
-Sphinx
-coverage
-awscli
-flake8
-wheel
-python-dotenv
-twine
-sklearn
+# download common packages and development environment requirements
+-r requirements/common.txt
+-r requirements/dev.txt

@@ -1,0 +1,4 @@
+#common packages for prod and dev environments
+sklearn
+pandas
+pytest
