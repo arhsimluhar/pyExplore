@@ -28,19 +28,19 @@ function clean() {
  pip  uninstall pyExplore -y
 }
 
-if [ $operation == "clean" ]
+if [ "$operation" == "clean" ]
 then
   clean
-elif [ $operation == "build" ]
+elif [ "$operation" == "build" ]
 then
   build
-elif [ $operation == "setup" ]
+elif [ "$operation" == "setup" ]
 then
   setup
-elif [ $operation == "release" ]
+elif [ "$operation" == "release" ]
 then
   release
-elif [ $operation == "install" ]
+elif [ "$operation" == "install" ]
 then
   install
 else
