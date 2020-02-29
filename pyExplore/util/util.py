@@ -20,12 +20,12 @@ def get_file_extension(path):
     return ""
 
 
-def convert_str_to_datetime(str_date, strfmt='%Y-%m-%d %H:%M:%S.%f'):
-    '''
+def convert_str_to_datetime(str_date, strfmt="%Y-%m-%d %H:%M:%S.%f"):
+    """
         Convert datetime(String) to datetime object
         OUTPUT: returns datetime object
         ------
-    '''
+    """
     return datetime.strptime(str_date, strfmt)
 
 

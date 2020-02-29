@@ -10,7 +10,6 @@ from pyExplore.util import util
 
 
 class EDA:
-
     def __init__(self, file=None, target=None, predictor=None, **kwargs):
 
         self.is_target_predictor_set = True
@@ -33,7 +32,9 @@ class EDA:
         elif self.target:
             self.predictor = [item for item in self.df.columns if item != self.target]
         elif self.predictor:
-            self.predictor = [item for item in self.df.columns if item != self.predictor]
+            self.predictor = [
+                item for item in self.df.columns if item != self.predictor
+            ]
         else:
             self.is_target_predictor_set = False
             return
@@ -58,7 +59,10 @@ class EDA:
         :return dict:
         """
         if self.is_target_predictor_set:
-            data = {"Predictor Variable": self.predictor, "Target Variable": self.target}
+            data = {
+                "Predictor Variable": self.predictor,
+                "Target Variable": self.target,
+            }
         else:
             data = {"info": "Predictor and  Target variables have not be set yet."}
         return data
@@ -66,10 +70,10 @@ class EDA:
     def set_data_type(self):
         data = {}
         for column in self.df.columns:
-            if self.df.dtypes[column] == 'int64':
-                data[column] = 'Integer'
+            if self.df.dtypes[column] == "int64":
+                data[column] = "Integer"
             elif self.df.dtypes[column] == "bool":
-                data[column] = 'Boolean'
+                data[column] = "Boolean"
             elif self.df.dtypes[column] == "float64":
                 data[column] = "Floating Point"
             elif self.df.dtypes[column] == "object":
@@ -115,7 +119,11 @@ class EDA:
         print("****************************")
 
         print("Shape: ", end="")
-        print("{0} Datapoints x {1} feature eda".format(self.df.shape[0], self.df.shape[1]))
+        print(
+            "{0} Datapoints x {1} feature eda".format(
+                self.df.shape[0], self.df.shape[1]
+            )
+        )
 
         print("\n")
         print("****************************")
@@ -150,10 +158,7 @@ class EDA:
 class UnivariateAnalysis(EDA):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.data = {
-            "CentralTendency": {},
-            "MeasureOfDispersion": {}
-        }
+        self.data = {"CentralTendency": {}, "MeasureOfDispersion": {}}
 
     def central_tendency(self):
         for var in self.continuous_variables:
@@ -169,17 +174,31 @@ class UnivariateAnalysis(EDA):
         if self.continuous_variables and self.discrete_variables:
             if self.continuous_variables:
                 for col_name in self.continuous_variables:
-                    x.histogram(col_name=col_name, title=f"Univariate Analyis ({col_name})", xlabel=col_name,
-                                ylabel="Count")
+                    x.histogram(
+                        col_name=col_name,
+                        title=f"Univariate Analyis ({col_name})",
+                        xlabel=col_name,
+                        ylabel="Count",
+                    )
 
                 for col_name in self.continuous_variables:
-                    x.box_plot(col_name=col_name, title=f"Univariate Analysis ({col_name})", ylabel=col_name)
+                    x.box_plot(
+                        col_name=col_name,
+                        title=f"Univariate Analysis ({col_name})",
+                        ylabel=col_name,
+                    )
 
             if self.discrete_variables:
                 for col_name in self.discrete_variables:
-                    x.bar(col_name=col_name, title=f"Univariate Analysis ({col_name})", ylabel="Count")
+                    x.bar(
+                        col_name=col_name,
+                        title=f"Univariate Analysis ({col_name})",
+                        ylabel="Count",
+                    )
         else:
-            print("Please define Categorial and Continous Variables for proper visualisation.")
+            print(
+                "Please define Categorial and Continous Variables for proper visualisation."
+            )
 
 
 class BivariateAnalysis(EDA):
