@@ -1,24 +1,24 @@
-import pandas as pd
-from pyExplore.visualization import  visual
+from pyExplore.visualization import visual
 
 """
-writing this exploratory preprocessing analysis
+writing this exploratory pre-processing analysis
 file with support of single CSV.
 Will improve this in the next version of the module.
 """
 
-from pyExplore.preprocessing import cleaner
+from pyExplore.util import util
+
 
 class EDA:
 
-    def __init__(self, file=None, delimiter=",", target=None, predictor=None):
+    def __init__(self, file=None, target=None, predictor=None, **kwargs):
 
         self.is_target_predictor_set = True
         self.discrete_variables = []
         self.continuous_variables = []
         self.feature_types = {}
         if file:
-            self.df = pd.read_csv(file, delimiter=delimiter)
+            self.df = util.load_dataset(file, **kwargs)
             self.target = target
             self.predictor = predictor
 
@@ -146,6 +146,7 @@ class EDA:
         print("Missing Values (any if) in Descending order")
         print(self.check_for_missing_data())
 
+
 class UnivariateAnalysis(EDA):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -163,19 +164,20 @@ class UnivariateAnalysis(EDA):
             self.data["MeasureOfDispersion"][var] = self.df[var].describe()
 
     def visualise(self):
-        #TODO improve the way we are doing the visualisation
-        x  = visual.figure(self.df)
+        # TODO improve the way we are doing the visualisation
+        x = visual.figure(self.df)
         if self.continuous_variables and self.discrete_variables:
             if self.continuous_variables:
                 for col_name in self.continuous_variables:
-                    x.histogram(col_name = col_name,title=f"Univariate Analyis ({col_name})",xlabel=col_name,ylabel="Count")
+                    x.histogram(col_name=col_name, title=f"Univariate Analyis ({col_name})", xlabel=col_name,
+                                ylabel="Count")
 
                 for col_name in self.continuous_variables:
-                    x.box_plot(col_name = col_name,title=f"Univariate Analysis ({col_name})",ylabel=col_name)
+                    x.box_plot(col_name=col_name, title=f"Univariate Analysis ({col_name})", ylabel=col_name)
 
             if self.discrete_variables:
                 for col_name in self.discrete_variables:
-                    x.bar(col_name = col_name, title=f"Univariate Analysis ({col_name})",ylabel="Count")
+                    x.bar(col_name=col_name, title=f"Univariate Analysis ({col_name})", ylabel="Count")
         else:
             print("Please define Categorial and Continous Variables for proper visualisation.")
 

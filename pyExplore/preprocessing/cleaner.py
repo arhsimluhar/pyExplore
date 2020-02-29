@@ -3,16 +3,20 @@ Module Contents functionality to process
 the dirty preprocessing and make it useable for future
 analysis
 """
+
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
+
+from pyExplore.util import util
+
 
 class Dataset:
     def __init__(self, df):
         self.df = df
 
     @classmethod
-    def from_csv(cls, file_path):
-        return cls(pd.read_csv(filepath_or_buffer=file_path))
+    def load_data(cls, file_path, **kwargs):
+        return cls(util.load_dataset(file_path, **kwargs))
 
     def drop_multiple_columns(self, column_name_list=None):
         '''
@@ -29,7 +33,6 @@ class Dataset:
         enc = OneHotEncoder(handle_unknown='ignore')
         enc.fit(self.df)
         enc.transform(self.df)
-
 
     def remove_col_white_space(self, column):
         # remove white space from the beginning and end of string
@@ -58,10 +61,5 @@ class TimeSeriesData(Dataset):
     def __init__(self, df):
         super().__init__(df)
 
-    def convert_str_to_datetime(self, field_name, strfmt='%Y-%m-%d %H:%M:%S.%f'):
-        '''
-            Convert datetime(String) to datetime
-            OUTPUT: updated df with new datetime format
-            ------
-            '''
-        self.df.insert(loc=2, column=field_name, value=pd.to_datetime(self.df.transdate, format=strfmt))
+    def convert_to_datetime_object(self, column, strfmt=None):
+        self.df[column] = pd.to_datetime(self.df[column], format=strfmt, infer_datetime_format=True)
