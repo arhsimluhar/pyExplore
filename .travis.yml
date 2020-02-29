@@ -11,8 +11,5 @@ install:
 script:
   - pytest  --cov-report term --cov=./pyExplore/
 
-env:
-  - CODECOV_TOKEN=61bba64b-e3a4-4b87-9c40-fc0c82603dfa
-
 after_success:
   - codecov
