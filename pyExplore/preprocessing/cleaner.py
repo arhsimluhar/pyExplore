@@ -19,18 +19,21 @@ class Dataset:
         return cls(util.load_dataset(file_path, **kwargs))
 
     def drop_multiple_columns(self, column_name_list=None):
-        '''
+        """
         Drop multiple columns based on their column names
         Input : pandas dataframe, List of column names in the preprocessing set
-        '''
+        """
         if column_name_list:
             self.df.drop(column_name_list, axis=1, inplace=True)
 
     def convert_categorial_data_to_numerical_data(self):
         pass
 
+    def remove_duplicates(self, *args, **kwargs):
+        self.df.remove_duplicates(*args, **kwargs)
+
     def one_hot_encode_data(self):
-        enc = OneHotEncoder(handle_unknown='ignore')
+        enc = OneHotEncoder(handle_unknown="ignore")
         enc.fit(self.df)
         enc.transform(self.df)
 
@@ -44,22 +47,24 @@ class Dataset:
         Output -> updated df with smaller
         """
         for column in column_float:
-            self.df[column] = self.df[column].astype('float32')
+            self.df[column] = self.df[column].astype("float32")
         for column in column_int:
-            self.df[column] = self.df[column].astype('int32')
+            self.df[column] = self.df[column].astype("int32")
 
     def remove_majority_na_columns(self, inplace=True):
         self.df.dropna(thresh=len(self.df) / 2, axis=1, inplace=inplace)
 
 
 class TimeSeriesData(Dataset):
-    '''
-    Special class to handle timeseries
+    """
+    Special class to handle time-series
     datasets
-    '''
+    """
 
     def __init__(self, df):
         super().__init__(df)
 
     def convert_to_datetime_object(self, column, strfmt=None):
-        self.df[column] = pd.to_datetime(self.df[column], format=strfmt, infer_datetime_format=True)
+        self.df[column] = pd.to_datetime(
+            self.df[column], format=strfmt, infer_datetime_format=True
+        )

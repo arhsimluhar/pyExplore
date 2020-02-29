@@ -3,6 +3,11 @@ pyExplore
 
 Python Package for exploratory data analysis in Data Science
 
+![Build Status](https://travis-ci.org/rahul1809/pyExplore.svg?branch=master)
+![codecov](https://codecov.io/gh/rahul1809/pyExplore/branch/master/graph/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
+
 Project Organization
 ------------
 
@@ -54,4 +59,4 @@ Project Organization
 
 --------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+Want to contribute, Contact @ [rahul.mishra2003@gmail.com](mailto:rahul.mishra2003@gmail.com)
