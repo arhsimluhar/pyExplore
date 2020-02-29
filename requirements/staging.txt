@@ -1,2 +1,1 @@
-pytest
-pytest-cov
+#packing required in staging area

@@ -1,3 +1,2 @@
 # download common packages and development environment requirements
 -r requirements/common.txt
--r requirements/dev.txt
