@@ -1,6 +1,8 @@
 pyExplore
 ==============================
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3382e3cce2534f85b2a1004acb4252cc)](https://app.codacy.com/manual/rahul.mishra2003/pyExplore?utm_source=github.com&utm_medium=referral&utm_content=rahul1809/pyExplore&utm_campaign=Badge_Grade_Dashboard)
+
 Python Package for exploratory data analysis in Data Science
 
 ![Build Status](https://travis-ci.org/rahul1809/pyExplore.svg?branch=master)
